@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>管理后台 — Hikari Mori</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171614'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23b4432e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Shippori+Mincho:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <!-- login -->
+  <section class="login" id="login">
+    <form class="login-card" id="loginForm">
+      <div class="brand"><span>(</span><b>光</b><span>)</span> Studio Admin</div>
+      <h1>管理后台</h1>
+      <p class="muted">登录后可上传、编辑、排序和删除作品与灵感图片。</p>
+      <input type="password" name="password" placeholder="管理密码" autocomplete="current-password" required>
+      <button class="btn primary" type="submit">登录</button>
+      <p class="error" id="loginError"></p>
+      <a class="muted small" href="/">← 返回网站</a>
+    </form>
+  </section>
+
+  <!-- dashboard -->
+  <div class="app" id="app" hidden>
+    <header class="topbar">
+      <div class="brand"><span>(</span><b>光</b><span>)</span> Studio Admin</div>
+      <nav class="tabs" role="tablist">
+        <button class="tab is-active" data-tab="works" role="tab">个人作品 <span class="count" data-count="works">0</span></button>
+        <button class="tab" data-tab="inspiration" role="tab">灵感图集 <span class="count" data-count="inspiration">0</span></button>
+      </nav>
+      <div class="top-actions">
+        <a class="btn ghost" href="/" target="_blank">查看网站 ↗</a>
+        <button class="btn ghost" id="logout">退出</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- upload -->
+      <section class="panel upload">
+        <div class="panel-head">
+          <h2>上传<span class="tab-name">个人作品</span></h2>
+          <p class="muted small" id="uploadHint">作品将以 3:4 竖幅展示在首页的横向画廊中。支持 JPG / PNG / WEBP / GIF / AVIF，单张不超过 30MB，可一次选择多张。</p>
+        </div>
+
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" multiple hidden>
+          <span class="dz-icon">＋</span>
+          <span><b>点击选择</b> 或将图片拖到这里</span>
+        </label>
+
+        <div class="previews" id="previews"></div>
+
+        <form class="meta-form" id="metaForm">
+          <label class="f-works">标题 <input name="title" placeholder="例如：River at Dawn（多张时留空则使用文件名）"></label>
+          <label class="f-works">地点 <input name="location" placeholder="例如：Nikko, Tochigi"></label>
+          <label class="f-works">年份 <input name="year" placeholder="例如：2025" inputmode="numeric"></label>
+          <label class="f-inspo" hidden>说明文字 <input name="caption" placeholder="点击放大时显示在图片下方，例如：Mist over the cedar forest"></label>
+          <div class="form-actions">
+            <div class="progress" id="progress"><i></i></div>
+            <button class="btn primary" type="submit" id="uploadBtn" disabled>上传</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- library -->
+      <section class="panel">
+        <div class="panel-head row">
+          <div>
+            <h2>已发布</h2>
+            <p class="muted small">拖动卡片调整顺序（排在最前的作品会作为首页大图）。修改文字后点击「保存」。</p>
+          </div>
+          <button class="btn" id="saveOrder" disabled>保存顺序</button>
+        </div>
+        <div class="grid" id="grid"></div>
+        <p class="muted empty" id="empty" hidden>暂无内容，先上传几张吧。</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

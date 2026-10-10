@@ -1,0 +1,286 @@
+{
+  "works": [
+    {
+      "id": "seed-w0",
+      "src": "https://picsum.photos/id/1015/1200/1600",
+      "title": "River at Dawn",
+      "caption": "",
+      "location": "Nikko, Tochigi",
+      "year": "2025",
+      "sample": true,
+      "createdAt": 1791618787748
+    },
+    {
+      "id": "seed-w1",
+      "src": "https://picsum.photos/id/1036/1200/1600",
+      "title": "Winter Path",
+      "caption": "",
+      "location": "Hakuba, Nagano",
+      "year": "2024",
+      "sample": true,
+      "createdAt": 1791618787747
+    },
+    {
+      "id": "seed-w2",
+      "src": "https://picsum.photos/id/1043/1200/1600",
+      "title": "Afterglow",
+      "caption": "",
+      "location": "Kamakura, Kanagawa",
+      "year": "2025",
+      "sample": true,
+      "createdAt": 1791618787746
+    },
+    {
+      "id": "seed-w3",
+      "src": "https://picsum.photos/id/1039/1200/1600",
+      "title": "Falling Water",
+      "caption": "",
+      "location": "Yakushima, Kagoshima",
+      "year": "2023",
+      "sample": true,
+      "createdAt": 1791618787745
+    },
+    {
+      "id": "seed-w4",
+      "src": "https://picsum.photos/id/1044/1200/1600",
+      "title": "Low Tide",
+      "caption": "",
+      "location": "Itoshima, Fukuoka",
+      "year": "2024",
+      "sample": true,
+      "createdAt": 1791618787744
+    },
+    {
+      "id": "seed-w5",
+      "src": "https://picsum.photos/id/1047/1200/1600",
+      "title": "City Between",
+      "caption": "",
+      "location": "Shibuya, Tokyo",
+      "year": "2025",
+      "sample": true,
+      "createdAt": 1791618787743
+    },
+    {
+      "id": "seed-w6",
+      "src": "https://picsum.photos/id/1050/1200/1600",
+      "title": "Northern Coast",
+      "caption": "",
+      "location": "Shiretoko, Hokkaido",
+      "year": "2023",
+      "sample": true,
+      "createdAt": 1791618787742
+    },
+    {
+      "id": "seed-w7",
+      "src": "https://picsum.photos/id/1067/1200/1600",
+      "title": "Lantern Street",
+      "caption": "",
+      "location": "Kyoto",
+      "year": "2024",
+      "sample": true,
+      "createdAt": 1791618787741
+    },
+    {
+      "id": "seed-w8",
+      "src": "https://picsum.photos/id/1069/1200/1600",
+      "title": "Deep Blue",
+      "caption": "",
+      "location": "Okinawa",
+      "year": "2025",
+      "sample": true,
+      "createdAt": 1791618787740
+    },
+    {
+      "id": "seed-w9",
+      "src": "https://picsum.photos/id/1074/1200/1600",
+      "title": "Quiet Gaze",
+      "caption": "",
+      "location": "Nara",
+      "year": "2022",
+      "sample": true,
+      "createdAt": 1791618787739
+    }
+  ],
+  "inspiration": [
+    {
+      "id": "seed-i0",
+      "src": "https://picsum.photos/id/10/900/1200",
+      "title": "",
+      "caption": "Mist over the cedar forest",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787748
+    },
+    {
+      "id": "seed-i1",
+      "src": "https://picsum.photos/id/11/1200/800",
+      "title": "",
+      "caption": "Morning tea, paper light",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787747
+    },
+    {
+      "id": "seed-i2",
+      "src": "https://picsum.photos/id/13/900/900",
+      "title": "",
+      "caption": "Salt and wind",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787746
+    },
+    {
+      "id": "seed-i3",
+      "src": "https://picsum.photos/id/14/800/1100",
+      "title": "",
+      "caption": "An unhurried afternoon",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787745
+    },
+    {
+      "id": "seed-i4",
+      "src": "https://picsum.photos/id/15/1200/900",
+      "title": "",
+      "caption": "Lines of the shore",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787744
+    },
+    {
+      "id": "seed-i5",
+      "src": "https://picsum.photos/id/16/1000/1300",
+      "title": "",
+      "caption": "The colour of moss",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787743
+    },
+    {
+      "id": "seed-i6",
+      "src": "https://picsum.photos/id/17/900/1200",
+      "title": "",
+      "caption": "Stillness in motion",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787742
+    },
+    {
+      "id": "seed-i7",
+      "src": "https://picsum.photos/id/18/1200/800",
+      "title": "",
+      "caption": "A walk before rain",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787741
+    },
+    {
+      "id": "seed-i8",
+      "src": "https://picsum.photos/id/19/900/900",
+      "title": "",
+      "caption": "Shadows on tatami",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787740
+    },
+    {
+      "id": "seed-i9",
+      "src": "https://picsum.photos/id/20/800/1100",
+      "title": "",
+      "caption": "Field notes",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787739
+    },
+    {
+      "id": "seed-i10",
+      "src": "https://picsum.photos/id/22/1200/900",
+      "title": "",
+      "caption": "The far mountain",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787738
+    },
+    {
+      "id": "seed-i11",
+      "src": "https://picsum.photos/id/24/1000/1300",
+      "title": "",
+      "caption": "Small things, kept",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787737
+    },
+    {
+      "id": "seed-i12",
+      "src": "https://picsum.photos/id/25/900/1200",
+      "title": "",
+      "caption": "Window, late summer",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787736
+    },
+    {
+      "id": "seed-i13",
+      "src": "https://picsum.photos/id/27/1200/800",
+      "title": "",
+      "caption": "Grain of the wood",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787735
+    },
+    {
+      "id": "seed-i14",
+      "src": "https://picsum.photos/id/28/900/900",
+      "title": "",
+      "caption": "Between two tides",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787734
+    },
+    {
+      "id": "seed-i15",
+      "src": "https://picsum.photos/id/29/800/1100",
+      "title": "",
+      "caption": "Evening hush",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787733
+    },
+    {
+      "id": "seed-i16",
+      "src": "https://picsum.photos/id/33/1200/900",
+      "title": "",
+      "caption": "Rooftops in snow",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787732
+    },
+    {
+      "id": "seed-i17",
+      "src": "https://picsum.photos/id/37/1000/1300",
+      "title": "",
+      "caption": "A letter of light",
+      "location": "",
+      "year": "",
+      "sample": true,
+      "createdAt": 1791618787731
+    }
+  ]
+}

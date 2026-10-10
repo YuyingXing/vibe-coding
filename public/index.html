@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hikari Mori — Photography</title>
+  <meta name="description" content="Hikari Mori — photographer based in Tokyo & Kyoto. Quiet light, still moments.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171614'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23b4432e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/vendor/lenis/lenis.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor is-hidden" aria-hidden="true"><span class="cursor-label"></span></div>
+
+  <!-- ================= Loader ================= -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-kanji">光</span>
+      <span class="loader-count">000</span>
+    </div>
+  </div>
+
+  <!-- ================= Header ================= -->
+  <header class="site-header">
+    <a class="logo" href="#top" data-scroll>
+      <span class="paren">(</span><span class="logo-mark">光</span><span class="paren">)</span>
+      <span class="logo-name">Hikari Mori</span>
+    </a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="#works" data-scroll>Works</a>
+      <a href="#inspiration" data-scroll>Inspiration</a>
+      <a href="#about" data-scroll>About</a>
+    </nav>
+    <div class="header-actions">
+      <a class="pill" href="#contact" data-scroll><span>Book a Session</span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+        <span class="menu-toggle-lines"><i></i><i></i></span>
+        <span class="menu-toggle-text">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= Overlay Menu ================= -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu-bg"></div>
+    <div class="menu-inner">
+      <ul class="menu-links">
+        <li><a href="#works" data-scroll><span class="menu-num">( 01 )</span><span class="menu-word">Works</span><span class="menu-jp">作品</span></a></li>
+        <li><a href="#inspiration" data-scroll><span class="menu-num">( 02 )</span><span class="menu-word">Inspiration</span><span class="menu-jp">霊感</span></a></li>
+        <li><a href="#about" data-scroll><span class="menu-num">( 03 )</span><span class="menu-word">About</span><span class="menu-jp">私について</span></a></li>
+        <li><a href="#contact" data-scroll><span class="menu-num">( 04 )</span><span class="menu-word">Contact</span><span class="menu-jp">連絡</span></a></li>
+      </ul>
+      <div class="menu-foot">
+        <div><span class="label">( Studio )</span><p>Nakameguro, Tokyo<br>Higashiyama, Kyoto</p></div>
+        <div><span class="label">( Social )</span><p><a href="#">Instagram</a><br><a href="#">Vimeo</a><br><a href="#">Behance</a></p></div>
+        <div><span class="label">( Say hello )</span><p><a href="mailto:hello@hikarimori.jp">hello@hikarimori.jp</a></p></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- ================= Hero ================= -->
+    <section class="hero">
+      <div class="hero-top">
+        <span class="label">( photographer )</span>
+        <span class="label">Tokyo — Kyoto</span>
+        <span class="label">Est. 2014</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line"><span class="line-inner">Quiet light,</span></span>
+        <span class="line"><span class="line-inner"><em>(still)</em> moments</span></span>
+        <span class="line"><span class="line-inner">of the everyday.</span></span>
+      </h1>
+
+      <p class="hero-vertical" aria-hidden="true">静かな光を、そっと写す。</p>
+
+      <div class="hero-bottom">
+        <p class="hero-intro">An independent photographer working across portrait, editorial and landscape — chasing soft daylight, film grain and the small pauses between things.</p>
+        <a class="scroll-cue" href="#works" data-scroll>
+          <span class="scroll-cue-line"></span>
+          <span>Scroll Down</span>
+        </a>
+      </div>
+
+      <figure class="hero-media">
+        <div class="hero-media-inner"><img id="heroImage" alt="" src="https://picsum.photos/id/1015/2000/1200"></div>
+        <figcaption class="label"><span>( Featured )</span><span id="heroCaption">River at Dawn — Nikko</span></figcaption>
+      </figure>
+    </section>
+
+    <!-- ================= Marquee ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Portrait</span><b>✳</b><span class="jp">写真</span><b>✳</b><span>Editorial</span><b>✳</b><span class="jp">光と影</span><b>✳</b><span>Landscape</span><b>✳</b><span class="jp">一期一会</span><b>✳</b>
+      </div>
+    </div>
+
+    <!-- ================= Works (tutorial111) ================= -->
+    <section class="section works" id="works">
+      <div class="section-head">
+        <span class="label section-num">( 01 )</span>
+        <h2 class="section-title" data-reveal><span>Selected</span> <em>(works)</em></h2>
+        <span class="section-jp" aria-hidden="true">作品</span>
+        <p class="section-desc" data-reveal>Personal and commissioned work, 2019 — now. Drag to browse, or let it play.</p>
+      </div>
+
+      <div class="w-gallery" data-cursor="Drag">
+        <div class="w-text">
+          <div class="w-title">
+            <span class="w-title-a text-state-1"></span>
+            <span class="w-title-b text-state-2"></span>
+          </div>
+          <div class="w-meta"><span class="w-location"></span><span class="w-year"></span></div>
+        </div>
+        <div class="w-stage">
+          <div class="w-track"></div>
+          <p class="empty-note" hidden>还没有作品 — 前往 <a href="/admin.html">管理后台</a> 上传。</p>
+        </div>
+        <div class="w-controls">
+          <span class="w-counter label">( <span class="w-current">01</span> / <span class="w-total">00</span> )</span>
+          <div class="w-buttons">
+            <button class="w-btn w-prev" aria-label="Previous">←</button>
+            <button class="w-btn w-play" aria-pressed="true"><span class="w-play-dot"></span><span class="w-play-text">Autoplay</span></button>
+            <button class="w-btn w-next" aria-label="Next">→</button>
+          </div>
+          <span class="label w-hint">Drag ⟷</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Inspiration (effect119) ================= -->
+    <section class="section inspo" id="inspiration">
+      <div class="section-head">
+        <span class="label section-num">( 02 )</span>
+        <h2 class="section-title" data-reveal><span>Inspiration</span> <em>(archive)</em></h2>
+        <span class="section-jp" aria-hidden="true">霊感</span>
+        <p class="section-desc" data-reveal>Fragments collected along the way — light, texture, places. Click any image to look closer.</p>
+      </div>
+      <div class="i-list" data-cursor="View"></div>
+      <p class="empty-note" hidden>还没有灵感图片 — 前往 <a href="/admin.html">管理后台</a> 上传。</p>
+    </section>
+
+    <div class="i-caption" aria-live="polite">
+      <span class="i-caption-count label"></span>
+      <p class="i-caption-text"></p>
+    </div>
+
+    <!-- ================= About ================= -->
+    <section class="section about" id="about">
+      <div class="section-head">
+        <span class="label section-num">( 03 )</span>
+        <h2 class="section-title" data-reveal><span>About</span> <em>(me)</em></h2>
+        <span class="section-jp" aria-hidden="true">私について</span>
+      </div>
+      <div class="about-grid">
+        <figure class="about-portrait">
+          <img src="https://picsum.photos/id/64/900/1200" alt="Portrait of Hikari Mori">
+        </figure>
+        <div class="about-body">
+          <p class="about-lead" data-reveal>I photograph the space between moments — <em>the pause</em> before someone laughs, the hour the city forgets itself, the way paper holds the morning.</p>
+          <p data-reveal>Born in Kanazawa and trained in Tokyo, I have spent the last decade working with editors, brands and couples who value restraint over spectacle. I shoot mostly on medium-format film and natural light.</p>
+          <ul class="services">
+            <li><span class="label">( 01 )</span>Portrait<span class="jp">肖像</span></li>
+            <li><span class="label">( 02 )</span>Editorial<span class="jp">編集</span></li>
+            <li><span class="label">( 03 )</span>Wedding<span class="jp">婚礼</span></li>
+            <li><span class="label">( 04 )</span>Landscape<span class="jp">風景</span></li>
+          </ul>
+          <div class="stats">
+            <div><b data-count="12">0</b><span class="label">Exhibitions</span></div>
+            <div><b data-count="140">0</b><span class="label">Clients</span></div>
+            <div><b data-count="9">0</b><span class="label">Years</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer / Contact ================= -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <span class="label">( 04 ) Contact</span>
+      <span class="label">連絡</span>
+    </div>
+    <a class="footer-cta" href="mailto:hello@hikarimori.jp">
+      <span class="footer-cta-line">Let’s make</span>
+      <span class="footer-cta-line"><em>(something)</em> quiet.</span>
+    </a>
+    <div class="footer-grid">
+      <div><span class="label">( Email )</span><a href="mailto:hello@hikarimori.jp">hello@hikarimori.jp</a></div>
+      <div><span class="label">( Studio )</span><p>Nakameguro, Tokyo</p></div>
+      <div><span class="label">( Social )</span><p><a href="#">Instagram</a> · <a href="#">Vimeo</a> · <a href="#">Behance</a></p></div>
+      <div><span class="label">( Local time )</span><p class="clock">--:--</p></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="label">( C ) <span class="year"></span> Hikari Mori</span>
+      <span class="footer-kanji" aria-hidden="true">森 光</span>
+      <a class="label" href="#top" data-scroll>Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox (works) -->
+  <div class="lightbox" aria-hidden="true">
+    <img alt="">
+    <div class="lightbox-meta"><span class="lightbox-title"></span><span class="label lightbox-sub"></span></div>
+    <button class="lightbox-close label">( Close )</button>
+  </div>
+
+  <script src="/vendor/gsap/gsap.min.js"></script>
+  <script src="/vendor/gsap/ScrollTrigger.min.js"></script>
+  <script src="/vendor/lenis/lenis.min.js"></script>
+  <script src="/js/works.js"></script>
+  <script src="/js/inspiration.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
