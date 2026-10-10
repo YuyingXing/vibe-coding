@@ -4,7 +4,7 @@
   const TOKEN_KEY = 'hm-admin-token';
   const LABELS = { works: '个人作品', inspiration: '灵感图集' };
   const HINTS = {
-    works: '作品将以 3:4 竖幅展示在首页的横向画廊中。支持 JPG / PNG / WEBP / GIF / AVIF，单张不超过 30MB，可一次选择多张。',
+    works: '作品将以 3:4 竖幅展示在首页的横向画廊中。支持 JPG / PNG / WEBP / GIF / AVIF，单张不超过 25MB，可一次选择多张。',
     inspiration: '灵感图片保持原始比例，以错落的方式展示；点击会放大并推开周围图片。支持一次选择多张。',
   };
 

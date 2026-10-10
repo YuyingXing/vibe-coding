@@ -118,7 +118,7 @@ const upload = multer({
       cb(null, `${Date.now()}-${crypto.randomBytes(4).toString('hex')}${ext}`);
     },
   }),
-  limits: { fileSize: 30 * 1024 * 1024, files: 50 },
+  limits: { fileSize: 25 * 1024 * 1024, files: 50 },
   fileFilter: (req, file, cb) => cb(null, /^image\/(jpeg|png|webp|gif|avif)$/.test(file.mimetype)),
 });
 
@@ -210,7 +210,7 @@ app.put('/api/:collection/order', requireAuth, collectionParam, (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  const msg = err.code === 'LIMIT_FILE_SIZE' ? '单张图片不能超过 30MB' : err.message || 'Server error';
+  const msg = err.code === 'LIMIT_FILE_SIZE' ? '单张图片不能超过 25MB' : err.message || 'Server error';
   res.status(400).json({ error: msg });
 });
 

@@ -2,8 +2,8 @@
  * Photography Portfolio — Cloudflare Worker
  * Mirrors the /api/* routes of server.js for deployment on Cloudflare.
  * - Static site (public/) is served by the ASSETS binding
- * - Images are stored in R2 at <collection>/<filename>, served from /uploads/...
- * - Metadata lives in R2 as db.json (seeded from data/db.json on first run)
+ * - Images are stored in KV at <collection>/<filename>, served from /uploads/...
+ * - Metadata lives in KV as db.json (seeded from data/db.json on first run)
  * - Login tokens are HMAC-signed, so they survive across Worker instances
  */
 import seedDB from '../data/db.json';
@@ -12,7 +12,8 @@ const DB_KEY = 'db.json';
 const COLLECTIONS = ['works', 'inspiration'];
 const EDITABLE_FIELDS = ['title', 'caption', 'location', 'year'];
 const IMAGE_TYPE = /^image\/(jpeg|png|webp|gif|avif)$/;
-const MAX_FILE_SIZE = 30 * 1024 * 1024;
+// KV values are capped at 25 MiB
+const MAX_FILE_SIZE = 25 * 1024 * 1024;
 const MAX_FILES = 50;
 const TOKEN_TTL = 7 * 24 * 60 * 60 * 1000;
 
@@ -33,17 +34,15 @@ const password = (env) => env.ADMIN_PASSWORD || 'hikari';
 /* ---------------- data store ---------------- */
 
 async function readDB(env) {
-  const obj = await env.BUCKET.get(DB_KEY);
-  const db = obj ? await obj.json() : structuredClone(seedDB);
+  const stored = await env.STORE.get(DB_KEY, 'json');
+  const db = stored || structuredClone(seedDB);
   for (const c of COLLECTIONS) if (!Array.isArray(db[c])) db[c] = [];
-  if (!obj) await writeDB(env, db);
+  if (!stored) await writeDB(env, db);
   return db;
 }
 
 function writeDB(env, db) {
-  return env.BUCKET.put(DB_KEY, JSON.stringify(db, null, 2), {
-    httpMetadata: { contentType: 'application/json' },
-  });
+  return env.STORE.put(DB_KEY, JSON.stringify(db));
 }
 
 /* ---------------- auth (signed token) ---------------- */
@@ -98,7 +97,7 @@ async function handleApi(request, env, parts) {
     const files = form.getAll('images').filter((f) => f instanceof File && IMAGE_TYPE.test(f.type));
     if (!files.length) throw new HttpError(400, '请选择图片文件（jpg / png / webp / gif / avif）');
     if (files.length > MAX_FILES) throw new HttpError(400, `一次最多上传 ${MAX_FILES} 张`);
-    if (files.some((f) => f.size > MAX_FILE_SIZE)) throw new HttpError(400, '单张图片不能超过 30MB');
+    if (files.some((f) => f.size > MAX_FILE_SIZE)) throw new HttpError(400, '单张图片不能超过 25MB');
 
     const field = (k) => String(form.get(k) || '').trim();
     const now = Date.now();
@@ -109,7 +108,7 @@ async function handleApi(request, env, parts) {
       const base = dot > 0 ? f.name.slice(0, dot) : f.name;
       const rand = [...crypto.getRandomValues(new Uint8Array(4))].map((b) => b.toString(16).padStart(2, '0')).join('');
       const filename = `${now + i}-${rand}${ext}`;
-      await env.BUCKET.put(`${collection}/${filename}`, f.stream(), { httpMetadata: { contentType: f.type } });
+      await env.STORE.put(`${collection}/${filename}`, await f.arrayBuffer(), { metadata: { contentType: f.type } });
       added.push({
         id: crypto.randomUUID(),
         src: `/uploads/${collection}/${filename}`,
@@ -158,7 +157,7 @@ async function handleApi(request, env, parts) {
     const idx = list.findIndex((x) => x.id === id);
     if (idx === -1) throw new HttpError(404, 'Not found');
     const [item] = list.splice(idx, 1);
-    if (item.src.startsWith('/uploads/')) await env.BUCKET.delete(item.src.slice('/uploads/'.length));
+    if (item.src.startsWith('/uploads/')) await env.STORE.delete(item.src.slice('/uploads/'.length));
     await writeDB(env, db);
     return json({ ok: true });
   }
@@ -169,13 +168,15 @@ async function handleApi(request, env, parts) {
 async function handleUpload(request, env, key) {
   const [collection] = key.split('/');
   if (!COLLECTIONS.includes(collection)) return new Response('Not found', { status: 404 });
-  const obj = await env.BUCKET.get(key);
-  if (!obj) return new Response('Not found', { status: 404 });
-  const headers = new Headers();
-  obj.writeHttpMetadata(headers);
-  headers.set('etag', obj.httpEtag);
-  headers.set('Cache-Control', 'public, max-age=604800');
-  return new Response(obj.body, { headers });
+  // uploaded filenames are unique and never overwritten, so cache them at the edge for a day
+  const { value, metadata } = await env.STORE.getWithMetadata(key, { type: 'stream', cacheTtl: 86400 });
+  if (!value) return new Response('Not found', { status: 404 });
+  return new Response(value, {
+    headers: {
+      'Content-Type': metadata?.contentType || 'application/octet-stream',
+      'Cache-Control': 'public, max-age=604800, immutable',
+    },
+  });
 }
 
 export default {
