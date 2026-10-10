@@ -9,8 +9,7 @@
     "run_worker_first": ["/api/*", "/uploads/*"]
   },
   "kv_namespaces": [
-    // 在 Cloudflare 控制台 Storage & Databases → KV 创建命名空间后，把 ID 填到这里
-    { "binding": "STORE", "id": "<KV_NAMESPACE_ID>" }
+    { "binding": "STORE", "id": "dc5cba78214f4d0c80dd3d4dba84b66f" }
   ]
   // 管理密码请用 secret 设置，不要写在这里：
   //   npx wrangler secret put ADMIN_PASSWORD
