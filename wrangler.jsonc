@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vibe-coding",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*", "/uploads/*"]
+  },
+  "r2_buckets": [
+    { "binding": "BUCKET", "bucket_name": "photography-portfolio" }
+  ]
+  // 管理密码请用 secret 设置，不要写在这里：
+  //   npx wrangler secret put ADMIN_PASSWORD
+}
